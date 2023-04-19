@@ -1,0 +1,55 @@
+version: '3.8'
+services:
+  add:
+    image: microcalc_add
+    build: ./add
+    container_name: microcalc_add
+    volumes:
+      - './add:/add'
+    ports:
+      - 3001:3001
+    networks:
+      - microcalc
+  apigateway:
+    image: microcalc_apigateway
+    build: ./apigateway
+    container_name: microcalc_apigateway
+    volumes:
+    - './apigateway:/apigateway'
+    ports:
+      - 80:3000
+    networks:
+      - microcalc
+  divide:
+    image: microcalc_divide
+    build: ./divide
+    container_name: microcalc_divide
+    volumes:
+      - './divide:/divide'
+    ports:
+      - 3004:3004
+      networks:
+      - microcalc
+  multiply:
+    image: microcalc_multiply
+    build: ./multiply
+    container_name: microcalc_multiply
+    volumes:
+      - './multiply:/multiply'
+    ports:
+      - 3003:3003
+    networks:
+      - microcalc
+      sub:
+    image: microcalc_sub
+    build: ./sub
+    container_name: microcalc_sub
+    volumes:
+      - './sub:/sub'
+    ports:
+      - 3002:3002
+    networks:
+      - microcalc    
+networks:
+  microcalc:
+    name: microcalc 

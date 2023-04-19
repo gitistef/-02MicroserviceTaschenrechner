@@ -1,0 +1,21 @@
+{
+  "name": "microcalc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "add": "cd add && npm start",
+    "apigateway": "cd apigateway && npm start",
+    "divide": "cd divide && npm start",
+    "multiply": "cd multiply && npm start",
+    "sub": "cd sub && npm start",
+    
+    "start": "npm install && npm update && concurrently \"npm run add\" \"npm run apigateway\" \"npm run divide\" \"npm run multiply\" \"npm run sub\""
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "8.0.*"
+  }
+}
